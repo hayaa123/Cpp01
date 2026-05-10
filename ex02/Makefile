@@ -1,7 +1,7 @@
-NAME = BraiiiiiiinnnzzzZ
+NAME = HI_THIS_IS_BRAIN
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
+SRC = main.cpp
 OBJ = $(SRC:.cpp=.o) 
 
 all: $(NAME)
