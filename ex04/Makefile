@@ -1,7 +1,7 @@
 NAME = SedIsForLosers
 CPP = c++
 CPPFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp replace_s1_s2.cpp create_out_file.cpp
+SRC = main.cpp utils.cpp
 OBJ = $(SRC:.cpp=.o) 
 
 all: $(NAME)

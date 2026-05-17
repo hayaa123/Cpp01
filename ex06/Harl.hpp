@@ -3,6 +3,14 @@
 
 #include <string>
 
+enum lvl{
+    DEBUG,
+    INFO,
+    WARNING,
+    ERROR,
+    NONE
+};
+
 class Harl
 {
     public:
@@ -10,8 +18,6 @@ class Harl
         ~Harl();
         void complain(std::string level);
     private:
-        std::string _levels[4];
-        void (Harl::*_functions[4])(void);
         void _debug( void );
         void _info( void );
         void _warning( void );

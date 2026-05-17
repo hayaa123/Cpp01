@@ -11,7 +11,7 @@ Zombie::Zombie(std::string name): _name(name)
     std::cout << this->_name << " has been created!" << std::endl;
 }
 
-std::string Zombie::get_name( void )
+std::string Zombie::get_name( void ) const
 {
     return (this->_name);
 }

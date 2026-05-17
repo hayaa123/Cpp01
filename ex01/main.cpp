@@ -1,6 +1,5 @@
 #include "Zombie.hpp"
 
-
 Zombie* zombieHorde( int N, std::string name );
 
 int main()
@@ -10,7 +9,7 @@ int main()
 
     for (int i = 0; i < n; i++)
     {
-        z->announce();
+        z[i].announce();
     }
     delete[] z; 
 }

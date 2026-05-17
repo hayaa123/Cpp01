@@ -1,33 +1,34 @@
-#include <iostream>
-#include <fstream>
-
-void replace_s1_s2(std::string& text, std::string& s2, std::string& s1, size_t occurrence);
-void create_out_file(std::string& text, const std::string& filename);
+#include "sed.hpp"
 
 int main(int argc, char **argv)
 {
     std::string text;
-    std::size_t occurrence = std::string::npos;
     if (argc != 4 )
     {
-        std::cout << "Programm Usage: ./SedIsForLosers <filename> <s1> <s2>" << std::endl;
+        std::cerr << "Programm Usage: ./SedIsForLosers <filename> <s1> <s2>" << std::endl;
         return (1);
+    }
+    if(argv[1][0] == '\0')
+    {
+        std::cerr << argv[1] << "Empty file name" << std::endl;
+        return(1);
     } 
     std::ifstream ifs(argv[1]);
     std::string s1 = argv[2];
     std::string s2 = argv[3];
-    if(!ifs.good())
+    if(!ifs.is_open())
     {
-        std::cout << argv[1] << " is not found" << std::endl;
+        std::cerr << argv[1] << " is not found" << std::endl;
         return(1);
     }
-    ifs >> text;
-    occurrence = text.find(s1);
-    while(occurrence != std::string::npos)
+    if(s1.empty())
     {
-        replace_s1_s2(text,s2, s1, occurrence);
-        occurrence = text.find(s1);
-    }
+        std::cerr << "s1 is empty" << std::endl;
+        ifs.close();
+        return (1);
+    }    
+    read_and_replace(ifs, text, s1, s2);
     create_out_file(text, argv[1]);
-    return(1);
+    ifs.close();
+    return(0);
 }
