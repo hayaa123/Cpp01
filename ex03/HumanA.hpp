@@ -1,11 +1,17 @@
 #ifndef HUMANA_HPP
 # define HUMANA_HPP
 
+#include "Weapon.hpp"
 
-class HummanA
+class HumanA
 {
     public:
-        
+        HumanA(const std::string& name,const Weapon& weapon);
+        ~HumanA();
+        void attack();
+    private:
+        std::string _name;    
+        const Weapon* _weapon;
 };
 
 #endif
